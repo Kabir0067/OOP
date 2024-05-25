@@ -1,0 +1,237 @@
+1 Question
+Given an array of integers, return the difference between the largest and smallest integers in the array. 
+Учитывая массив целых чисел, верните разницу между наибольшим и наименьшим целыми числами в массиве.
+difference([10, 15, 20, 2, 10, 6]) ➞ 18 20 - 2 = 18
+Ҷавоб:
+________________________________
+my_list=[10, 15, 20, 2, 10, 6]       
+res=sorted(my_list)                             
+print(res[-1]-res[0])          
+________________________________
+########################################################################################################################
+
+2 Question
+Create a function which returns "upper" if all the letters in a word are uppercase, "lower" if lowercase and 
+"mixed" for any mix of the two. Создайте функцию, которая возвращает «верхнюю», если все буквы в слове прописные,
+«нижнюю», если строчные, и «смешанную» для любого сочетания этих двух букв.
+
+getCase("whisper...") ➞ "lower"
+
+getCase("SHOUT!") ➞ "upper"
+Ҷавоб:
+________________________________________
+def getCase(string):                                                  
+    if string.islower():                                                  
+        return "lower"                                                  
+    elif string.isupper():                                                  
+        return "upper"                                                  
+    else:                                                  
+        return "mixed"                                                  
+                                                                                                     
+print(getCase("whisper..."))                                                  
+________________________________________
+########################################################################################################################
+3 Question
+The Fibonacci sequence is defined as follows: φ0=1, φ1=1, φn=φn-1+φn-2 for n>1. The beginning of the Fibonacci 
+series looks like this: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ... Write a function int phi(int n) (C/C++), function phi
+(n:integer ): integer, (Pascal), which, given a natural number n, returns φn.
+
+Ҷавоб:
+_________________________________________
+
+def fibonach(n):
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return fibonach(n-1) + fibonach(n-2)
+
+a=int(input())
+print(fibonach(a))
+_________________________________________
+
+########################################################################################################################
+5 Question
+Print the following pattern.(Распечатайте следующий шаблон.) 1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 7 7 7 8 8 9
+
+Ҷавоб:
+_________________________________________________
+def pattern():                                                                                   
+    num = 1                                                                                
+    for i in range(1, 10):                                                                                
+        for j in range(i):                                                                                
+            print(num, end=" ")                                                                                
+        num += 1                                                                                
+    print()                                                                                
+                                                                                
+pattern()                                                                                
+_________________________________________________
+
+########################################################################################################################
+6 Question
+Create base class Shape with attributes width and length. Also create class Rectangle and Square which inherit from Shape,
+with methods get_area() and get_perimetr. Создайте базовый класс Shape с атрибутами ширины и длины. Также создайте классы
+Rectangle и Square, которые наследуются от Shape, с методами get_area() и get_perimetr().
+Ҷавоб:
+
+__________________________________________________________________________________
+class Shape:
+    def __init__(self,wi_th, length):
+        self.wi_th=wi_th
+        self.length=length
+    
+class Rectangle (Shape):
+    
+    def get_area(self,a,b):
+        return (a+b)*2
+    def get_perimetr(self,a,b):
+        return a*b
+
+class Square(Shape):
+      
+    def get_are(self,a,b):
+        return (a+b)*2
+    def get_perime(self,a,b):
+        return a*b
+    
+
+rectangle1=Rectangle(5,10)
+square1=Square(8,8)
+
+print(f"Area Rectangle --> {rectangle1.get_area(5,10)}")
+print(f"Area Rectangle --> {rectangle1.get_perimetr(5,10)}")
+print("_"*40)
+print(f"Area Square --> {square1.get_are(5,5)}")
+print(f"Area Square --> {square1.get_perime(5,5)}")
+__________________________________________________________________________________
+
+########################################################################################################################
+7 Question
+Write a Python program to create a person class. Include attributes like name, country and date of birth. Implement a 
+method to determine the person's age. Use incapsulation methods as well. / Напишите программу на Python для создания класса
+человека. Включите такие атрибуты, как имя, страна и дата рождения. Реализуйте метод определения возраста человека. Также 
+используйте методы инкапсуляции.
+
+Ҷавоб:
+
+____________________________________________________________________________________________
+from datetime import datetime
+
+class Person:
+    def __init__(self, name, country, date_of_birth):
+        self._name = name
+        self._country = country
+        self._date_of_birth = datetime.strptime(date_of_birth, "%Y %m %d").date()
+
+    def calculate_age(self):
+        today = datetime.today().date()
+        age = today.year - self._date_of_birth.year
+        return age
+
+
+my_person = Person("Kabir", "Tojik", "2004 08 16")
+print("_"*25)                                         
+print(f'Nomash --> {my_person._name}         |')
+print(f'Milatsh --> {my_person._country}        |')
+print(f"{my_person.calculate_age()} sola meboshad         |")
+print("_"*25)
+____________________________________________________________________________________________
+########################################################################################################################
+
+
+8 Question
+Build a Nobel class. An instance is already created for you and instance attributes are included inside the print. 
+those clues and try to reverse engineer the class. Implement string representation of a class object using str method inside 
+the class.
+
+Ҷавоб:
+
+__________________________________________________________________________________
+class Nobel:
+    def __init__(self, guruh, year, winner):
+        self.guruh = guruh
+        self.year = year
+        self.winner = winner
+
+    def __str__(self):
+        return f"Nobel Prize {self.guruh} {self.year}: {self.winner}"
+
+
+np2005 = Nobel("Peace", 2005, "Muhammad Yunus")
+print(np2005)
+__________________________________________________________________________________
+
+########################################################################################################################
+Write a program to create a child class Teacher that will inherit the properties and methods from the parent class Staff.
+Staff class has role, departament and salary attributes.
+Ҷавоб:
+__________________________________________________________________________________
+class Staff:
+    def __init__(self,role,department,salary):
+        self.role=role
+        self.department=department
+        self.salary=salary
+        
+    def __str__(self):
+        return f"Rolle --> {self.role}, Department --> {self.department}, Salary --> {self.salary}$"
+
+class Techer(Staff):
+    pass
+
+teac=Techer("Mualimi zabon","Pedagogiya",5000)
+print(teac.__str__())
+__________________________________________________________________________________
+
+########################################################################################################################
+
+10 Question
+Create a function which takes a list of objects from the class IceCream and returns the sweetness value of the sweetest 
+ice cream. Note that there is a class provided for you in the Tests tab. Each sprinkle has a sweetness value of 1 Check 
+below for the sweetness values of the different flavors. Создайте функцию, которая берет список объектов класса IceCream 
+и возвращает значение сладости самого сладкого мороженого. Обратите внимание, что на вкладке «Тесты» вам предоставлен класс. 
+Каждая посыпка имеет показатель сладости 1. Ниже приведены значения сладости различных вкусов.
+class IceCream: def init(self, flavor, num_sprinkles): self.flavor = flavor self.num_sprinkles = num_sprinkles
+
+Ҷавоб:
+____________________________________________________________________________________________
+
+class IceCream:
+    def __init__(self, flavor, ots):
+        self.flavor = flavor
+        self.ots = ots
+
+def sweetest_icecream(icecreams):
+    my_dict_value = {
+        "Plain": 0,
+        "Vanilla": 5,
+        "ChocolateChip": 5,
+        "Strawberry": 10,
+        "Chocolate": 10
+    }
+
+    cnt = 0
+    for i in icecreams:
+        otss = my_dict_value[i.flavor] + i.ots
+        if otss > cnt:
+            cnt = otss
+
+    return cnt
+
+ice1 = IceCream("Chocolate", 13)
+ice2 = IceCream("Vanilla", 0)
+ice3 = IceCream("Strawberry", 5)
+ice4 = IceCream("Plain", 2)
+ice5 = IceCream("ChocolateChip", 8)
+
+print(sweetest_icecream([ice1, ice2, ice3, ice4, ice5]))  
+print(sweetest_icecream([ice3, ice1]))  
+_____________________________________________________________________________________
+
+
+
+
+
+
+
+
