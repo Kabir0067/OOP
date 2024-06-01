@@ -1,0 +1,324 @@
+1 Question
+What is OOP and why is it important? Write about main principles of OOP. Чиро ООП мегуянд ва барои чӣ
+он лозим аст? Дар бораи принсипҳои асосии он нависед.
+_______________________________________________________________________________________
+Ҷавоби 1:
+ООП ин яке аз парадигмаҳои барномасози мебошад ки аз 4 принсип иборат аст 
+1.Инҳеретенс -- Яъне меросгири
+2.Инкапсулятсия -- Яъне то чи андоза дартрас шудани атрибутҳо ва методҳо 3 Модификатор доступ дорад 
+(Public-- Ин дар ҳамаҷо дастрас аст),(Privet-- Ин дастнорас аст ба востаи гетер ва сетер метавонем 
+дастраси пайдо кунем) (Protect -- Ин танҳо дар класси бачаги дастрас аст) 
+3.Полиморфизм -- Ин Консепсияест ки мо метавонем ак методро бо номи якхела дар ҳар клласс бор ҳар гуна 
+хусусия истифода мекнем ин аз Инҳеретенс вобастаги дорад.
+4.Абстракт
+ООП барои қисм қисм ҳал намудани задача ё проблемаҳои калон истифода мешавад.
+_______________________________________________________________________________________
+
+2 Question
+What are getter and setter and how to use them? Write about properties in python. Getter ва setter
+чист ва чӣ тавр онҳоро истифода мебарем? Дар бораи хусусиятҳо(properties) дар python нависед.
+
+_______________________________________________________________________________________
+Ҷавоби 2:
+Getter ин методе мебошад ки барои нишон додани қимати Прайвт истифода мешавад, Ва setter бошад барои
+дигаргун кардани қиммати Прайвт ё ягон кори дигар кардан
+_______________________________________________________________________________________
+
+3 Question
+Types of variables and methods in a class. Кадом намуди атрибутҳо ва методҳо дар клас мавҷуданд.
+_______________________________________________________________________________________
+Ҷавоби 3:
+Класс Метод, Класс Веребл, Инстанс Метод ва инстанс Веребл ва рефренс веребл
+_______________________________________________________________________________________
+
+4 Question
+Write about constructor and destructor. Дар бораи конструктор ва деструктор нависед.
+_______________________________________________________________________________________
+Ҷавоби 4:
+конструктор ин барои сохтани объекти класс истифода мешавад  ду намуди конструктор ҳаст 
+1.__init__ 
+2.__new__
+
+деструктор ин противи конструктор аст барои удалит кардани объекти клас ва ин  __del__ мебошад
+_______________________________________________________________________________________
+
+5 Question
+Difference between global, local and nonlocal variables. Фарқият байни тағйирёбандаҳои global, 
+local and nonlocal.
+_______________________________________________________________________________________
+Ҷавоби 5:Фарқияти global аз local дар ин аст ки global вереблҳо берун аз методу клас ҷойгиранд
+Яъне дар зоннаи асоси гуем , local бошад дар даруни функсия ҷойгир аст дар дохили функсия global 
+веребл global аст, nonlocal бошад дар дохили функсияҳои дарун ба дарун мебошад веребли як функсия
+барои дигари функсия nonlocal мебошад
+_______________________________________________________________________________________
+
+Задача 1:
+Create a program that asks the user for a range of numbers (x, y) and displays the multiplication tables
+from x to y. Барномае созед ки аз консол 2 рақамро қабул мекунад. Барои ҳар як адади дар ин давр 
+вуҷуддошта ҷадвали зарбашро нишон диҳад.
+_______________________________________________________________________________________
+Ҳал:
+num1=int(input("Enter number 1 --> "))
+num2=int(input("Enter number 2 --> "))
+for i in range(1,10+1):
+    print(f"{num1} * {i} = {num1*i}")
+print("_"*15)
+for j in range(1,10+1):
+    print(f"{num2} * {j} = {num2*i}")
+_______________________________________________________________________________________
+Задача 2:
+Create a class of Circle with instance variable like radius and class variable like PI(3.14).
+Then create a constructor which initializes the radius(radius comes as a parameter of constructor). 
+Your class should have the following methods: Як класи Circle ки аз як тағйирёбандаи ба клас 
+таалуқдошта PI = 3.14 ва як тағйирёбандаи ба обект тааллуқдошта radius ки қиммати он аз конструктор
+гузошта мешавад созед. Класи Шумо аз методҳои зерин бояд иборат бошад:
+
+get_area(); // area = 2 * PI * R * R
+get_diametr(); // diameter = 2 * R
+get_circumference(); // circumference = 2 * PI * R
+get_radius(); // radius = R
+_______________________________________________________________________________________
+Ҳал:
+class Circle:
+    pi=3.14
+    def __init__(self,R):
+        self.r=R
+        
+    def get_area(self):
+        return f"Area = {2* self.pi ** self.r}"
+    
+    def diametr(self):
+        return f"Diametr = {2*self.r}"
+    
+    def get_circumference(self):
+        return f"Circumference {2*self.pi*self.r}"
+    
+    def get_radius(self):  
+        return f"Radius {self.r}"
+   
+circle1=Circle(int(input("Enter your number --> ")))
+print("_"*20)
+print(circle1.get_area())
+print(circle1.diametr())
+print(circle1.get_circumference())
+print(circle1.get_radius())
+print("_"*20)
+_______________________________________________________________________________________
+Задача 3:
+Create a Calculator class with this static methods: Класи Калкуляторро бо методҳои 
+статикии зерин созед:
+
+factorial(n)
+power(a, b)
+sqrt(n)
+_______________________________________________________________________________________
+Ҳал:
+import math
+class Calculator:
+   
+    @staticmethod
+    def factorial(n):
+        res=1
+        for i in range(1, n+1):
+            res *= i
+        return f"Factoriali ({n}) = {res}"
+    
+    @staticmethod
+    def power(a, b):
+        return f"Power ({a} and {b}) = {a ** b}"
+    
+    @staticmethod
+    def sqrt(n):
+        return f"Sqrt ({n}) = {math.sqrt(n)}"
+    
+calculator1=Calculator()
+print(calculator1.factorial(10))
+print(calculator1.power(5,2))
+print(calculator1.sqrt(49))
+_______________________________________________________________________________________
+Задача 4:
+Write a program in Python that asks the user for two numbers and one operation (+, -, *, /)
+then calculate the operation and display the result on the screen. You should to follow this steps:
+Як класи Calculator созед ки дар конструктор атрибутҳои зеринро дорост. Рақами якум, амал(+, -, *, /)
+ва рақами дуюм. Калкулятори Шумо баяд 4 амали математикиро иҷро кунад. Берун аз клас як даври 
+беохир(infinite loop) созед. Объекти класи Калкуляторро созед ва рақамҳо ва аломати дохил
+кардаатонро ба он гузоред. math case - ро барои даъват кардани методиҳои клас вобаста ба 
+аломати дохилкарда истифода баред.
+
+Create class Calculator
+Create a constructor which initializes the first number, operation(+, -, *, /) and 
+second number(first num, second num, operation comes as parameter of constructor).
+Create four instance methods like: Sum() Subtract() Multiplication() Division()
+Create infinite loop outside Calculator class
+Use the math case block for calling methods
+_______________________________________________________________________________________
+Ҳал:
+class  Calculator:
+    def __init__(self,num1,num2):
+        self.num1=num1
+        self.num2=num2
+    
+    def sum(self):
+        print("_"*10)
+        
+        return f"""
+The first number is:{self.num1}
+The operation is: +
+The second number is: {self.num2}
+Sum = {self.num1+self.num2}
+    """
+        print("_"*10)
+
+    def minus(self):
+        print("_"*10)
+        return f"""
+The first number is:{self.num1}
+The operation is: -
+The second number is: {self.num2}
+Minus = {self.num1+self.num2}
+    """    
+        print("_"*10)
+        
+    def Multiplication(self):
+        print("_"*10)
+        return f"""
+The first number is:{self.num1}
+The operation is: *
+The second number is: {self.num2}
+Minus = {self.num1+self.num2}
+    """    
+        print("_"*10)
+        
+    def Division(self):
+        print("_"*10)
+        return f"""
+The first number is:{self.num1}
+The operation is: /
+The second number is: {self.num2}
+Minus = {self.num1+self.num2}
+    """    
+        print("_"*10)
+
+
+while True:
+    print("\n1. Sum")
+    print("2. Minus")
+    print("3. Multiplication")
+    print("4. Devision")
+    print("5. Exit")
+    
+    choice = input("Enter your choice: ")
+    
+    match choice:
+        case "1":
+            calc1=Calculator(int(input("Enter num1 --> ")), int(input("Enter num2 --> ")))
+            print(calc1.sum())
+            
+        case "2":
+            calc1=Calculator(int(input("Enter num1 --> ")), int(input("Enter num2 --> ")))
+            print(calc1.minus())
+            
+        case "3":
+            calc1=Calculator(int(input("Enter num1 --> ")), int(input("Enter num2 --> ")))
+            print(calc1.Multiplication())
+       
+        case "4":
+            calc1=Calculator(int(input("Enter num1 --> ")), int(input("Enter num2 --> ")))
+            print(calc1.Division())     
+            
+        case "5":
+            break
+_______________________________________________________________________________________
+
+Задача 5:
+Write an access control in PYTHON that asks the user for the username and password. 
+Both must be integers from user. You should to follow this steps:
+
+Create a User class with attributes like First name, Last name, Username 
+and Password. All atributes should init from constructor(init).
+
+Create a UserManager class with this methods: register() -> in this method you should create object of 
+User, input user information from console and append to list_of_users.
+
+login() -> this method should to check if user login and password both correct should print Login 
+successful! or this user is not to list_of_user print User with this username not found and password 
+incorrect print Password incorrect.
+
+change_password() -> this method for changing password by username, old_password and new_password
+
+GetUser() -> get all users from list_of_users
+_______________________________________________________________________________________
+Ҳал:
+class UserManager:
+    def __init__(self):
+        self.list_of_users = []
+
+    def register(self):
+        first_name = input("Enter your first name: ")
+        last_name = input("Enter your last name: ")
+        username = int(input("Enter your username: "))
+        password = int(input("Enter your password: "))
+        user = User(first_name, last_name, username, password)
+        self.list_of_users.append(user)
+
+    def login(self):
+        username = int(input("Enter your username: "))
+        password = int(input("Enter your password: "))
+        for i in self.list_of_users:
+            if i.username == username:
+                if i.password == password:
+                    print("Login successful!")
+                    return
+                else:
+                    print("Password incorrect.")
+                    return
+        print("Not found.")
+
+    def change_password(self):
+        username = int(input("Enter your username : "))
+        old_password = int(input("Enter your old password : "))
+        new_password = int(input("Enter your new password : "))
+        for user in self.list_of_users:
+            if user.username == username:
+                if user.password == old_password:
+                    user.password = new_password
+                    print("Password changed successfully!")
+                    return
+                else:
+                    print("Old password incorrect.")
+                    return
+        print("User with this username not found.")
+
+    def get_users(self):
+        for user in self.list_of_users:
+            print(f"Username: {user.username}, First Name: {user.first_name}, Last Name: {user.last_name}")
+
+
+class CreateUser:
+    def __init__(self):
+        self.user_manager = UserManager()
+
+    def infinite (self):
+        while True:
+            print("\n1. Register")
+            print("2. Login")
+            print("3. Change Password")
+            print("4. Get Users")
+            print("5. Exit")
+            choice = int(input("Enter your choice: "))
+            if choice == 1:
+                self.user_manager.register()
+            elif choice == 2:
+                self.user_manager.login()
+            elif choice == 3:
+                self.user_manager.change_password()
+            elif choice == 4:
+                self.user_manager.get_users()
+            elif choice == 5:
+                break
+            else:
+                print("Invalid choice. Try again.")
+
+
+users = CreateUser()
+users.infinite()
